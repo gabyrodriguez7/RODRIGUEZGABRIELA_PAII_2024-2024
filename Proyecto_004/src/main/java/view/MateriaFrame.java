@@ -1,0 +1,229 @@
+package view;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import controller.Container;
+
+public class MateriaFrame extends JFrame{
+
+		private static final long serialVersionUID = 1L;
+		private JPanel contentPane;
+		private JTextField txtIdGuardar;
+		private JTextField txtName;
+		private JTextField txtDescripcion;
+		private JTextField txtLevel;
+		private JTextField txtIdBuscar;
+		private JTextField txtIdActualizar;
+		private JTextField txtNombreActualizar;
+		private JTextField txtIdEliminar;
+		Color color1 = new Color(0.756f, 0.8470f, 0.8470f);
+		Color color2 = new Color(0.937f, 0.8470f, 0.7058f);
+		Color color3 = new Color(0.886f, 0.619f, 0.6313f);
+
+		Container controlador = new Container();
+    public MateriaFrame() {
+        super("***Materia***");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(600, 600);
+		setLocationRelativeTo(null);
+
+		setVisible(true);
+
+		contentPane = new JPanel();
+		contentPane.setBackground(color1);
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+
+		// Titulo "Student"
+		JLabel lblTitle = new JLabel("Materia:");
+		lblTitle.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+		lblTitle.setBounds(10, 10, 100, 20);
+		contentPane.add(lblTitle);
+
+		// Campo de texto para ingresar el ID al guardar
+		JLabel lblIdGuardar = new JLabel("ID:");
+		lblIdGuardar.setBounds(10, 40, 100, 20);
+		contentPane.add(lblIdGuardar);
+
+		txtIdGuardar = new JTextField();
+		txtIdGuardar.setBounds(120, 40, 200, 20);
+		contentPane.add(txtIdGuardar);
+
+		// Campos de texto para ingresar datos
+		JLabel lblName = new JLabel("Name:");
+		lblName.setBounds(10, 70, 100, 20);
+		contentPane.add(lblName);
+
+		txtName = new JTextField();
+		txtName.setBounds(120, 70, 200, 20);
+		contentPane.add(txtName);
+
+		JLabel lblLastName = new JLabel("Descripcion:");
+		lblLastName.setBounds(10, 100, 100, 20);
+		contentPane.add(lblLastName);
+
+		txtDescripcion = new JTextField();
+		txtDescripcion.setBounds(120, 100, 200, 20);
+		contentPane.add(txtDescripcion);
+
+		JLabel lblAge = new JLabel("Level:");
+		lblAge.setBounds(10, 130, 100, 20);
+		contentPane.add(lblAge);
+
+		txtLevel = new JTextField();
+		txtLevel.setBounds(120, 130, 200, 20);
+		contentPane.add(txtLevel);
+
+		JButton btnSave = new JButton("Guardar");
+		btnSave.setBounds(350, 130, 100, 30);
+		btnSave.setBackground(color2);
+		btnSave.setBorder(BorderFactory.createRaisedBevelBorder());
+		contentPane.add(btnSave);
+
+		// Etiqueta y campo de texto para buscar
+		JLabel lblBuscar = new JLabel("Buscar:");
+		lblBuscar.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+		lblBuscar.setBounds(10, 200, 100, 20);
+		contentPane.add(lblBuscar);
+
+		JLabel lblIngresarIdBuscar = new JLabel("Ingrese ID:");
+		lblIngresarIdBuscar.setBounds(10, 230, 100, 20);
+		contentPane.add(lblIngresarIdBuscar);
+
+		txtIdBuscar = new JTextField();
+		txtIdBuscar.setBounds(150, 230, 200, 20);
+		contentPane.add(txtIdBuscar);
+
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setBounds(370, 230, 100, 20);
+		btnBuscar.setBackground(color2);
+		btnBuscar.setBorder(BorderFactory.createRaisedBevelBorder());
+		contentPane.add(btnBuscar);
+
+		// Etiqueta y campos de texto para actualizar
+		JLabel lblActualizar = new JLabel("Actualizar:");
+		lblActualizar.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+		lblActualizar.setBounds(10, 280, 100, 20);
+		contentPane.add(lblActualizar);
+
+		JLabel lblIngresarIdActualizar = new JLabel("Ingrese ID:");
+		lblIngresarIdActualizar.setBounds(10, 310, 100, 20);
+		contentPane.add(lblIngresarIdActualizar);
+
+		txtIdActualizar = new JTextField();
+		txtIdActualizar.setBounds(150, 310, 200, 20);
+		contentPane.add(txtIdActualizar);
+
+		JLabel lblIngresarNombreActualizar = new JLabel("Nombre a Actualizar:");
+		lblIngresarNombreActualizar.setBounds(10, 340, 200, 20);
+		contentPane.add(lblIngresarNombreActualizar);
+
+		txtNombreActualizar = new JTextField();
+		txtNombreActualizar.setBounds(150, 340, 200, 20);
+		contentPane.add(txtNombreActualizar);
+
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.setBounds(370, 320, 100, 20);
+		btnActualizar.setBackground(color2);
+		btnActualizar.setBorder(BorderFactory.createRaisedBevelBorder());
+		contentPane.add(btnActualizar);
+
+		// Etiqueta y campo de texto para eliminar
+		JLabel lblEliminar = new JLabel("Eliminar:");
+		lblEliminar.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+		lblEliminar.setBounds(10, 420, 100, 20);
+		contentPane.add(lblEliminar);
+
+		JLabel lblIngresarIdEliminar = new JLabel("Ingrese ID:");
+		lblIngresarIdEliminar.setBounds(10, 450, 100, 20);
+		contentPane.add(lblIngresarIdEliminar);
+
+		txtIdEliminar = new JTextField();
+		txtIdEliminar.setBounds(150, 450, 200, 20);
+		contentPane.add(txtIdEliminar);
+
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.setBounds(370, 450, 100, 20);
+		btnEliminar.setBackground(color2);
+		btnEliminar.setBorder(BorderFactory.createRaisedBevelBorder());
+		contentPane.add(btnEliminar);
+		
+		 JButton Regresar = new JButton("Regresar");
+	        Regresar.setBounds(250, 520, 100, 20);
+	        Regresar.setBackground(color3);
+	        Regresar.setBorder(BorderFactory.createRaisedBevelBorder());;
+	        contentPane.add(Regresar);
+		// FUNCIONALIDAD
+
+		btnSave.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+		
+				int id = Integer.parseInt(txtIdGuardar.getText());
+				String name = txtName.getText();
+				String descripcion = txtDescripcion.getText();
+				int level = Integer.parseInt(txtLevel.getText());
+
+			
+				controlador.createSubject(id, name, descripcion, level);
+
+			}
+		});
+		btnBuscar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int id = Integer.parseInt(txtIdBuscar.getText());
+				controlador.readSubject(id);
+
+			}
+		});
+
+		btnActualizar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				int id = Integer.parseInt(txtIdActualizar.getText());
+				String actualizar = txtNombreActualizar.getText();
+
+				controlador.updateSubject(id, actualizar);
+
+			}
+		});
+		
+		
+		btnEliminar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				int id = Integer.parseInt(txtIdEliminar.getText());
+
+				controlador.deleteSubject(id);
+
+			}
+		});
+		 Regresar.addActionListener(new ActionListener() {
+
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	                MateriaFrame.this.dispose();
+	            	MenuPrincipal menu = new MenuPrincipal();
+
+	            }
+	        });
+        
+    }
+}
